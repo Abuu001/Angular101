@@ -1,15 +1,63 @@
- <h2 >Welcome to : {{title |  uppercase}}</h2>
- <p>{{ marks | percent }}</p>
- <p> Date : {{ today | date:'medium' }} </p>
-
- <p>{{toJsonObject | json}}</p>
-
-<p> {{message  | truncate }}</p>
-
- <button  (click)="handleEvent()">click me please</button>
-
- <input placeholder="add text" [(ngModel)]="title" (keydown)="handleEvent()" />
  
+ <a routerLink='/first'> First Page</a>
  <hr>
-    <p>TO do list data   {{todoList | json}}</p>
+
+ <a routerLink='/second'> Second Page</a>
  <hr>
+
+ <a routerLink='/third'> Third Page</a>
+ <hr>
+
+ <a routerLink='/fourth'> Fourth Page</a>
+ <hr>
+
+<div>
+<button (click)="goToRoute()">Got to fourth</button>
+
+   <div class="split left">
+      <div class="centered">  
+
+      </div>
+    </div>
+
+    <div class="split right">
+      <div class="centered"> 
+         <router-outlet></router-outlet>
+      </div>
+    </div> 
+</div>
+
+
+ <div class="container22">
+
+      <h2 >Welcome to : {{title |  uppercase}}</h2>
+      <p>{{ marks | percent }}</p>
+      <p> Date : {{ today | date:'medium' }} </p>
+
+      <p>{{toJsonObject | json}}</p>
+
+      <p> {{message  | truncate }}</p>
+
+      <button  (click)="handleEvent()">click me please</button>
+
+      <input placeholder="add text" [(ngModel)]="title" (keydown)="handleEvent()" />
+      
+      <hr>
+         <p>TO do list data   {{todoList | json }}</p>
+      <hr>
+
+      <input placeholder="user" [(ngModel)]="userObject.id">
+      <input placeholder="user" [(ngModel)]="userObject.name">
+      <input placeholder="user" [(ngModel)]="userObject.age">
+
+      <ng-container *ngIf="showUser"> 
+         <app-user [user1]="userObject"  (userCustomEvent)="handleUserEvent($event)"></app-user>
+      </ng-container>
+
+      <ul  *ngFor="let item of (posts | async)">
+         <li > {{item.id }}</li>
+         <li > {{item.title}}</li>   
+      </ul>
+
+
+ </div>
