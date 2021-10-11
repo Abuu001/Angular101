@@ -1,0 +1,15 @@
+ <h2 >Welcome to : {{title |  uppercase}}</h2>
+ <p>{{ marks | percent }}</p>
+ <p> Date : {{ today | date:'medium' }} </p>
+
+ <p>{{toJsonObject | json}}</p>
+
+<p> {{message  | truncate }}</p>
+
+ <button  (click)="handleEvent()">click me please</button>
+
+ <input placeholder="add text" [(ngModel)]="title" (keydown)="handleEvent()" />
+ 
+ <hr>
+    <p>TO do list data   {{todoList | json}}</p>
+ <hr>
